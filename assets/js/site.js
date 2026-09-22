@@ -1,28 +1,25 @@
-/* Sresak Software Solutions — site.js (no dependencies) */
+/* Sresak Software Solutions — site.js (v2, no dependencies) */
 (function () {
   'use strict';
-
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* sticky header state */
-  var hdr = document.querySelector('.hdr');
-  var totop = document.querySelector('.totop');
+  /* ------------------------------------------------ sticky header + back to top */
+  var hdr = document.querySelector('.hdr'), totop = document.querySelector('.totop');
   function onScroll() {
     var y = window.scrollY || document.documentElement.scrollTop;
-    if (hdr) hdr.classList.toggle('is-stuck', y > 12);
-    if (totop) totop.classList.toggle('show', y > 700);
+    if (hdr) hdr.classList.toggle('is-stuck', y > 8);
+    if (totop) totop.classList.toggle('show', y > 640);
   }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
-  /* mobile drawer */
+  /* ------------------------------------------------ mobile drawer */
   var burger = document.querySelector('.burger');
   if (burger) {
     burger.addEventListener('click', function () {
       var open = document.body.classList.toggle('nav-open');
       burger.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
-    document.querySelectorAll('.drawer a').forEach(function (a) {
+    Array.prototype.forEach.call(document.querySelectorAll('.drawer a'), function (a) {
       a.addEventListener('click', function () {
         document.body.classList.remove('nav-open');
         burger.setAttribute('aria-expanded', 'false');
@@ -30,62 +27,116 @@
     });
   }
 
-  /* back to top */
   if (totop) totop.addEventListener('click', function () {
     window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
   });
 
-  /* scroll reveal (staggered) */
+  /* ------------------------------------------------ scroll reveal (staggered) */
   var items = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && !reduced) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        var el = e.target;
-        var sibs = Array.prototype.slice.call(el.parentNode.children).filter(function (n) {
+        /* reveal when it comes into view — and also when it is already above the
+           viewport (deep links / reload mid-page must not leave blank sections) */
+        if (!e.isIntersecting && e.boundingClientRect.top > 0) return;
+        var el = e.target, parent = el.parentNode;
+        var sibs = Array.prototype.filter.call(parent.children, function (n) {
           return n.classList && n.classList.contains('reveal');
         });
-        var i = sibs.indexOf(el);
-        el.style.transitionDelay = (Math.min(i, 6) * 70) + 'ms';
-        el.classList.add('in');
-        io.unobserve(el);
+        el.style.transitionDelay = (Math.min(sibs.indexOf(el), 5) * 60) + 'ms';
+        el.classList.add('in'); io.unobserve(el);
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px' });
-    items.forEach(function (el) { io.observe(el); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -36px' });
+    Array.prototype.forEach.call(items, function (el) {
+      /* anything already scrolled past (anchor deep link) shows immediately */
+      if (el.getBoundingClientRect().top < -40) el.classList.add('in');
+      io.observe(el);
+    });
   } else {
-    items.forEach(function (el) { el.classList.add('in'); });
+    Array.prototype.forEach.call(items, function (el) { el.classList.add('in'); });
   }
 
-  /* animated counters */
-  var counters = document.querySelectorAll('[data-count]');
+  /* ------------------------------------------------ counters */
   function runCount(el) {
     var target = parseFloat(el.getAttribute('data-count'));
     var suffix = el.getAttribute('data-suffix') || '';
     var dec = (el.getAttribute('data-dec') || '0') | 0;
-    if (reduced) { el.textContent = target.toFixed(dec) + suffix; return; }
-    var dur = 1400, t0 = performance.now();
-    function tick(t) {
-      var p = Math.min((t - t0) / dur, 1);
-      var eased = 1 - Math.pow(1 - p, 3);
+    if (reduced || isNaN(target)) { el.textContent = (isNaN(target) ? '' : target.toFixed(dec)) + suffix; return; }
+    var dur = 1200, t0 = performance.now();
+    (function tick(t) {
+      var p = Math.min((t - t0) / dur, 1), eased = 1 - Math.pow(1 - p, 3);
       el.textContent = (target * eased).toFixed(dec) + suffix;
       if (p < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
+    })(t0);
   }
+  var counters = document.querySelectorAll('[data-count]');
   if (counters.length) {
     if ('IntersectionObserver' in window) {
       var co = new IntersectionObserver(function (es) {
         es.forEach(function (e) { if (e.isIntersecting) { runCount(e.target); co.unobserve(e.target); } });
-      }, { threshold: 0.5 });
-      counters.forEach(function (el) { co.observe(el); });
-    } else { counters.forEach(runCount); }
+      }, { threshold: 0.4 });
+      Array.prototype.forEach.call(counters, function (el) { co.observe(el); });
+    } else { Array.prototype.forEach.call(counters, runCount); }
   }
 
-  /* year */
+  /* ------------------------------------------------ hero terminal */
+  /* The script below is illustrative of a first discovery session — it is not
+     a recording of any client's environment. */
+  var SCRIPT = [
+    { t: 'cmd',  v: 'sresak@perth:~$ ./discover --business "your business"' },
+    { t: 'dim',  v: '  reading current setup', wait: 260 },
+    { t: 'ok',   v: '  ✓ systems mapped · accounts inventoried · data flows traced' },
+    { t: 'dim',  v: '  checking the things that bite', wait: 240 },
+    { t: 'warn', v: '  ! backups: last verified restore test — unknown' },
+    { t: 'warn', v: '  ! admin access: 3 people, no MFA on 2 accounts' },
+    { t: 'warn', v: '  ! documentation: one person holds the knowledge' },
+    { t: 'cmd',  v: 'sresak@perth:~$ suggest --next --plain-english' },
+    { t: 'hi',   v: '  1. test the restores (a backup you have not restored is a rumour)' },
+    { t: 'hi',   v: '  2. turn on MFA, remove the shared logins' },
+    { t: 'hi',   v: '  3. write it down, so it is not a single point of failure' },
+    { t: 'dim',  v: '  4. then talk about what to build' }
+  ];
+  var term = document.getElementById('term');
+  if (term) {
+    var cursorHTML = '<span class="cursor"></span>';
+    if (reduced) {
+      term.innerHTML = SCRIPT.map(function (l) { return '<div class="ln ' + l.t + '">' + l.v + '</div>'; }).join('') + cursorHTML;
+    } else {
+      var i = 0;
+      var step = function () {
+        if (i >= SCRIPT.length) {
+          var c = document.createElement('span'); c.className = 'cursor'; term.appendChild(c); return;
+        }
+        var l = SCRIPT[i++];
+        var d = document.createElement('div');
+        d.className = 'ln ' + l.t;
+        term.appendChild(d);
+        if (l.t === 'cmd') {
+          var txt = l.v, k = 0;
+          (function type() {
+            d.textContent = txt.slice(0, ++k);
+            if (k < txt.length) setTimeout(type, 26); else setTimeout(step, 420);
+          })();
+        } else {
+          d.textContent = l.v;
+          setTimeout(step, l.wait || 200);
+        }
+      };
+      var start = function () { setTimeout(step, 500); };
+      if ('IntersectionObserver' in window) {
+        var to = new IntersectionObserver(function (es) {
+          es.forEach(function (e) { if (e.isIntersecting) { start(); to.disconnect(); } });
+        }, { threshold: 0.3 });
+        to.observe(term);
+      } else { start(); }
+    }
+  }
+
+  /* ------------------------------------------------ year */
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 
-  /* enquiry form: graceful handling while the Formspree endpoint is pending */
+  /* ------------------------------------------------ enquiry form */
   var form = document.querySelector('form[data-enquiry]');
   if (form) {
     form.addEventListener('submit', function (ev) {
@@ -95,47 +146,41 @@
         ev.preventDefault();
         if (ok) {
           ok.classList.add('show');
-          ok.textContent = 'Thanks — this demo form is not wired to a mailbox yet. ' +
-            'Please email info@sresaksoftware.com until the form endpoint is configured.';
+          ok.textContent = 'This form is not connected to a mailbox yet — please email info@sresaksoftware.com for now.';
           ok.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' });
         }
         return;
       }
-      /* real endpoint: submit in background, keep the user on the page */
       ev.preventDefault();
-      var data = new FormData(form);
-      fetch(action, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
+      fetch(action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
         .then(function (r) {
           if (!r.ok) throw new Error('bad status');
           form.reset();
-          if (ok) { ok.classList.add('show'); ok.textContent = 'Thanks — your enquiry has been sent. We will reply within one business day.'; ok.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+          if (ok) { ok.classList.add('show'); ok.textContent = 'Thanks — your enquiry has been sent. We reply within one business day.'; ok.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
         })
         .catch(function () {
-          if (ok) { ok.classList.add('show'); ok.textContent = 'Something went wrong. Please email info@sresaksoftware.com instead.'; }
+          if (ok) { ok.classList.add('show'); ok.textContent = 'That did not send. Please email info@sresaksoftware.com instead.'; }
         });
     });
   }
 
-  /* smooth in-page anchors with sticky-header offset */
-  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+  /* ------------------------------------------------ in-page anchors with header offset */
+  Array.prototype.forEach.call(document.querySelectorAll('a[href^="#"]'), function (a) {
     a.addEventListener('click', function (e) {
       var id = a.getAttribute('href');
       if (id.length < 2) return;
       var t = document.querySelector(id);
       if (!t) return;
       e.preventDefault();
-      var top = t.getBoundingClientRect().top + window.scrollY - 96;
-      window.scrollTo({ top: top, behavior: reduced ? 'auto' : 'smooth' });
+      window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 92, behavior: reduced ? 'auto' : 'smooth' });
       history.replaceState(null, '', id);
     });
   });
 
-  /* mark current nav item if the server didn't already */
+  /* ------------------------------------------------ current nav item */
   var path = location.pathname.replace(/index\.html$/, '');
-  document.querySelectorAll('.nav a, .drawer a').forEach(function (a) {
+  Array.prototype.forEach.call(document.querySelectorAll('.nav a, .drawer a'), function (a) {
     var href = a.getAttribute('href') || '';
-    if (href === path || (path !== '/' && href === location.pathname)) {
-      a.setAttribute('aria-current', 'page');
-    }
+    if (href === path || (path !== '/' && href === location.pathname)) a.setAttribute('aria-current', 'page');
   });
 })();

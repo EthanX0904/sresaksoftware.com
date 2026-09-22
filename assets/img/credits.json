@@ -96,5 +96,71 @@
   "query": "aerial view city perth river",
   "size": "1600x1061",
   "kb_webp": 419
+ },
+ "p-founder": {
+  "photographer": "Tiger Lily",
+  "url": "https://www.pexels.com/photo/man-standing-in-white-shirt-looking-at-the-camera-7109090/",
+  "size": "900x1350",
+  "kb": 44
+ },
+ "p-second": {
+  "photographer": "Helena Lopes",
+  "url": "https://www.pexels.com/photo/a-woman-in-a-business-suit-smiling-27086922/",
+  "size": "900x1350",
+  "kb": 36
+ },
+ "p-third": {
+  "photographer": "Jimmy Nilsson Masth",
+  "url": "https://www.pexels.com/photo/a-man-sitting-inside-a-tractor-11484635/",
+  "size": "900x1324",
+  "kb": 89
+ },
+ "team-candid": {
+  "photographer": "Karolina Grabowska www.kaboompics.com",
+  "url": "https://www.pexels.com/photo/behind-of-woman-gesturing-6385/",
+  "size": "1400x934",
+  "kb": 80
+ },
+ "on-site": {
+  "photographer": "RDNE Stock project",
+  "url": "https://www.pexels.com/photo/man-and-woman-having-a-conversation-8292769/",
+  "size": "1400x934",
+  "kb": 76
+ },
+ "handover": {
+  "photographer": "fauxels",
+  "url": "https://www.pexels.com/photo/men-using-imac-indoors-3182780/",
+  "size": "1400x934",
+  "kb": 65
+ },
+ "tech-racks": {
+  "photographer": "panumas nikhomkhai",
+  "url": "https://www.pexels.com/photo/monitor-and-wires-behind-17489155/",
+  "size": "1600x1068",
+  "kb": 116
+ },
+ "tech-code": {
+  "photographer": "Bibek ghosh",
+  "url": "https://www.pexels.com/photo/code-on-screen-14553704/",
+  "size": "1400x934",
+  "kb": 57
+ },
+ "tech-site": {
+  "photographer": "Sergey Sergeev",
+  "url": "https://www.pexels.com/photo/technicians-in-control-room-operating-machinery-32845695/",
+  "size": "1400x932",
+  "kb": 67
+ },
+ "tech-night": {
+  "photographer": "David",
+  "url": "https://www.pexels.com/photo/perth-skyline-at-sunset-16545023/",
+  "size": "1600x900",
+  "kb": 104
+ },
+ "tech-meet": {
+  "photographer": "Walls.io",
+  "url": "https://www.pexels.com/photo/colleagues-standing-by-whiteboard-17724731/",
+  "size": "1400x934",
+  "kb": 55
  }
 }

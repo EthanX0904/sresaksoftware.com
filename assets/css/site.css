@@ -663,3 +663,50 @@ h2{line-height:1.06}
 .hero__right{align-content:stretch}
 .console{display:flex;flex-direction:column}
 .console__body{flex:1 1 auto;min-height:246px}
+
+/* ==========================================================================
+   v12 — wide-screen proportions
+   The container was capped at 1240px, which left huge empty margins on large
+   monitors (340px at 1920, 660px at 2560, 1100px at 3440). It now scales with
+   the viewport and the type scale grows with it.
+   ========================================================================== */
+.wrap{width:min(1320px,100% - var(--pad)*2)}
+
+/* rows: fill the whole width with a right-aligned action at the far edge */
+.row{grid-template-columns:88px minmax(210px,.85fr) minmax(0,1.55fr) minmax(150px,max-content);
+  align-items:baseline}
+.row__act{text-align:right;white-space:nowrap}
+.row__act .row__link{display:inline-flex;align-items:center;gap:8px}
+.row__act .ar{transition:transform .25s var(--ease)}
+.row:hover .row__act .ar{transform:translateX(4px)}
+@media(max-width:900px){
+  .row{grid-template-columns:64px 1fr;row-gap:8px}
+  .row__body{grid-column:2}
+  .row__act{grid-column:2;text-align:left;margin-top:6px}
+}
+
+@media(min-width:1600px){
+  .wrap{width:min(1520px,94vw)}
+  body{font-size:17.5px}
+  :root{--fs-display:clamp(5rem,4.6vw,6rem); --fs-h1:clamp(2.4rem,3.4vw,3.9rem);
+        --fs-h2:clamp(1.9rem,2.5vw,3rem); --fs-lede:clamp(1.12rem,1.15vw,1.4rem)}
+  .hero h1{max-width:24ch}
+  .section{padding:clamp(40px,3.4vw,62px) 0}
+}
+@media(min-width:1900px){
+  .wrap{width:min(1660px,92vw)}
+  body{font-size:18px}
+  :root{--fs-display:clamp(4.6rem,4.5vw,6.6rem); --fs-h2:clamp(2.1rem,2.6vw,3.4rem)}
+  .hero h1{max-width:25ch}
+  .row{grid-template-columns:96px minmax(230px,.9fr) minmax(0,1.6fr) minmax(160px,max-content)}
+}
+@media(min-width:2300px){
+  .wrap{width:min(2000px,88vw)}
+  body{font-size:18.5px}
+  .grid.g-auto{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  :root{--fs-display:clamp(5rem,4.4vw,7rem)}
+}
+@media(min-width:2800px){
+  .wrap{width:min(2160px,84vw)}
+  body{font-size:19px}
+}

@@ -94,7 +94,9 @@
     { t: 'hi',   v: '  1. test the restores (a backup you have not restored is a rumour)' },
     { t: 'hi',   v: '  2. turn on MFA, remove the shared logins' },
     { t: 'hi',   v: '  3. write it down, so it is not a single point of failure' },
-    { t: 'dim',  v: '  4. then talk about what to build' }
+    { t: 'dim',  v: '  4. then talk about what to build' },
+    { t: 'dim',  v: '  handover: runbook · credentials · aftercare' },
+    { t: 'ok',   v: '  ✓ you keep the keys — documentation is part of the job' }
   ];
   var term = document.getElementById('term');
   if (term) {

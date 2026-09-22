@@ -310,11 +310,11 @@ body.nav-open .drawer{transform:none;opacity:1;pointer-events:auto}
 .shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:12px 14px;font-family:var(--f-mono);font-size:11px;
   letter-spacing:.08em;text-transform:uppercase;color:#E7EEF5;background:linear-gradient(0deg,rgba(6,10,16,.82),transparent)}
 
-/* checklist */
+/* lists — marker drawn in CSS (no icon assets, no pictograms) */
 .checks{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:12px}
-.checks li{display:flex;gap:12px;align-items:flex-start;font-size:15.6px;margin:0}
-.checks svg{width:18px;height:18px;flex:none;margin-top:4px;color:var(--blue-dk)}
-.s-dark .checks svg{color:var(--cyan)}
+.checks li{display:flex;gap:14px;align-items:flex-start;font-size:15.6px;margin:0}
+.checks li::before{content:"";flex:none;width:7px;height:7px;margin-top:9px;background:var(--blue);border-radius:1px}
+.s-dark .checks li::before{background:var(--cyan)}
 
 /* chips / stack */
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}

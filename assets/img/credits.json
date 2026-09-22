@@ -239,5 +239,94 @@
   "url": "https://www.pexels.com/photo/industrial-worker-using-tablet-in-factory-32845692/",
   "size": "1400x932",
   "kb": 71
+ },
+ "home-ind-mining": {
+  "type": "photo",
+  "by": "Enrique",
+  "url": "https://www.pexels.com/photo/heavy-machinery-in-desert-15071425/",
+  "size": "1400x934",
+  "kb": 388
+ },
+ "home-ind-health": {
+  "type": "photo",
+  "by": "Pavel Danilyuk",
+  "url": "https://www.pexels.com/photo/couple-looking-at-documents-in-reception-of-medical-center-7108325/",
+  "size": "1400x934",
+  "kb": 50
+ },
+ "home-ind-logistics": {
+  "type": "photo",
+  "by": "Tom Jackson",
+  "url": "https://www.pexels.com/photo/kenworth-t680-semi-trailer-truck-driving-down-the-road-27099095/",
+  "size": "1400x934",
+  "kb": 113
+ },
+ "home-ind-build": {
+  "type": "photo",
+  "by": "D Goug",
+  "url": "https://www.pexels.com/photo/wooden-house-frame-under-construction-in-sunlight-39151698/",
+  "size": "1400x786",
+  "kb": 167
+ },
+ "home-ind-prof": {
+  "type": "photo",
+  "by": "Bia Limova",
+  "url": "https://www.pexels.com/photo/financial-analysis-with-calculator-and-documents-33175651/",
+  "size": "1400x933",
+  "kb": 71
+ },
+ "home-ind-nfp": {
+  "type": "photo",
+  "by": "Pavel Danilyuk",
+  "url": "https://www.pexels.com/photo/a-woman-in-white-shirt-raising-her-hand-8761544/",
+  "size": "1400x934",
+  "kb": 58
+ },
+ "home-case-1": {
+  "type": "photo",
+  "by": "Tiger Lily",
+  "url": "https://www.pexels.com/photo/worker-in-a-warehouse-4483941/",
+  "size": "1400x934",
+  "kb": 71
+ },
+ "home-case-2": {
+  "type": "photo",
+  "by": "\u0412\u0430\u0441\u0438\u043b\u044c \u0412\u043e\u0432\u043a",
+  "url": "https://www.pexels.com/photo/laptop-with-graphic-illustration-on-screen-in-office-4405384/",
+  "size": "1400x931",
+  "kb": 52
+ },
+ "ind-common": {
+  "type": "photo",
+  "by": "David",
+  "url": "https://www.pexels.com/photo/skyline-of-perth-australia-reflecting-in-water-at-sunset-12902274/",
+  "size": "1400x788",
+  "kb": 87
+ },
+ "spare-1": {
+  "type": "photo",
+  "by": "Brett Sayles",
+  "url": "https://www.pexels.com/photo/fiber-optic-device-with-many-connected-cables-4373998/",
+  "size": "1400x934",
+  "kb": 165
+ },
+ "spare-2": {
+  "type": "photo",
+  "by": "Bia Limova",
+  "url": "https://www.pexels.com/photo/professional-handshake-in-business-meeting-33175650/",
+  "size": "1400x933",
+  "kb": 40
+ },
+ "ind-health": {
+  "type": "photo",
+  "by": "Kampus Production",
+  "url": "https://www.pexels.com/photo/an-elderly-man-lying-on-the-bed-7551683/",
+  "kb": 56
+ },
+ "ind-transport": {
+  "type": "photo",
+  "by": "Berna",
+  "url": "https://www.pexels.com/photo/forklift-loading-truck-18699604/",
+  "kb": 130
  }
 }

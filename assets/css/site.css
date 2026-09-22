@@ -589,7 +589,7 @@ textarea{min-height:132px;resize:vertical}
 .lede-sm{font-size:15.8px;color:var(--t-dark-2)}
 
 /* ==========================================================================
-   v4 — density pass (Ethan: "整个网站构建很宽松，留白很多")
+   v4 - density pass: tighter vertical rhythm everywhere
    Later rules win; this block tightens the vertical rhythm everywhere.
    ========================================================================== */
 :root{

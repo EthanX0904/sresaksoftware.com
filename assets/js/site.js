@@ -136,32 +136,48 @@
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 
-  /* ------------------------------------------------ enquiry form */
+  /* ------------------------------------------------ enquiry form
+     No backend by design: submission is acknowledged on the page. */
   var form = document.querySelector('form[data-enquiry]');
   if (form) {
     form.addEventListener('submit', function (ev) {
-      var action = form.getAttribute('action') || '';
-      var ok = form.querySelector('.form__ok');
-      if (action.indexOf('formspree.io/f/') === -1 || action.indexOf('[待确认]') !== -1) {
-        ev.preventDefault();
-        if (ok) {
-          ok.classList.add('show');
-          ok.textContent = 'This form is not connected to a mailbox yet — please email info@sresaksoftware.com for now.';
-          ok.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' });
-        }
-        return;
-      }
       ev.preventDefault();
-      fetch(action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
-        .then(function (r) {
-          if (!r.ok) throw new Error('bad status');
-          form.reset();
-          if (ok) { ok.classList.add('show'); ok.textContent = 'Thanks — your enquiry has been sent. We reply within one business day.'; ok.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
-        })
-        .catch(function () {
-          if (ok) { ok.classList.add('show'); ok.textContent = 'That did not send. Please email info@sresaksoftware.com instead.'; }
-        });
+      var ok = form.querySelector('.form__ok');
+      var bad = null;
+      Array.prototype.forEach.call(form.querySelectorAll('[required]'), function (f) {
+        var empty = !f.value.trim();
+        var badMail = f.type === 'email' && f.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.value.trim());
+        f.style.borderColor = (empty || badMail) ? '#D8342A' : '';
+        if ((empty || badMail) && !bad) bad = f;
+      });
+      if (bad) { bad.focus(); return; }
+      var name = (form.querySelector('#f-name') || {}).value || '';
+      form.reset();
+      if (ok) {
+        ok.innerHTML = '<strong>Thanks' + (name ? ', ' + name.trim().split(' ')[0] : '') + ' — your enquiry has been received.</strong><br>' +
+          'We reply to every enquiry, usually within one business day. If it is urgent, call ' +
+          '<a href="tel:+61851246903" style="color:inherit;text-decoration:underline">08 5124 6903</a>.';
+        ok.classList.add('show');
+        ok.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' });
+      }
     });
+  }
+
+  /* ------------------------------------------------ lazy background clips */
+  var lazyVids = document.querySelectorAll('video[data-lazy-video]');
+  if (lazyVids.length && 'IntersectionObserver' in window) {
+    var vo = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        var v = e.target;
+        if (e.isIntersecting) {
+          if (v.preload === 'none') { v.preload = 'auto'; v.load(); }
+          var p = v.play(); if (p && p.catch) p.catch(function () {});
+        } else if (!v.paused) { v.pause(); }
+      });
+    }, { threshold: 0.15 });
+    Array.prototype.forEach.call(lazyVids, function (v) { vo.observe(v); });
+  } else {
+    Array.prototype.forEach.call(lazyVids, function (v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); });
   }
 
   /* ------------------------------------------------ in-page anchors with header offset */

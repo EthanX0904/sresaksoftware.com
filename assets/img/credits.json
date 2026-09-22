@@ -162,5 +162,82 @@
   "url": "https://www.pexels.com/photo/colleagues-standing-by-whiteboard-17724731/",
   "size": "1400x934",
   "kb": 55
+ },
+ "hero-rack": {
+  "type": "video",
+  "by": "Dima Krivoy",
+  "url": "https://www.pexels.com/video/blue-colored-cables-1085656/",
+  "size": "1280px / 10s",
+  "kb": 117
+ },
+ "city-night": {
+  "type": "video",
+  "by": "Ming Z",
+  "url": "https://www.pexels.com/video/night-traffic-on-junction-in-city-10433645/",
+  "size": "1280px / 8s",
+  "kb": 516
+ },
+ "team-work": {
+  "type": "video",
+  "by": "Kampus Production",
+  "url": "https://www.pexels.com/video/women-talking-while-looking-at-the-laptop-8631874/",
+  "size": "1280px / 8s",
+  "kb": 445
+ },
+ "svc-support2": {
+  "type": "photo",
+  "by": "Yan Krukau",
+  "url": "https://www.pexels.com/photo/a-man-and-a-woman-pointing-at-the-computer-screen-8867472/",
+  "size": "1200x800",
+  "kb": 51
+ },
+ "svc-cloud2": {
+  "type": "photo",
+  "by": "Brett Sayles",
+  "url": "https://www.pexels.com/photo/high-angle-shot-of-network-switch-5050305/",
+  "size": "1200x798",
+  "kb": 57
+ },
+ "svc-security2": {
+  "type": "photo",
+  "by": "Ann H",
+  "url": "https://www.pexels.com/photo/cyber-awareness-text-on-abstract-background-38486969/",
+  "size": "1200x800",
+  "kb": 97
+ },
+ "svc-data2": {
+  "type": "photo",
+  "by": "AlphaTradeZone",
+  "url": "https://www.pexels.com/photo/showing-the-graph-in-the-monitor-5833762/",
+  "size": "1200x675",
+  "kb": 55
+ },
+ "svc-web2": {
+  "type": "photo",
+  "by": "Mikhail Nilov",
+  "url": "https://www.pexels.com/photo/a-person-using-laptop-7988114/",
+  "size": "1200x801",
+  "kb": 92
+ },
+ "rich-whiteboard": {
+  "type": "photo",
+  "by": "Yan Krukau",
+  "url": "https://www.pexels.com/photo/woman-drawing-on-a-whiteboard-8837192/",
+  "size": "1400x934",
+  "kb": 73
+ },
+ "rich-meeting": {
+  "type": "photo",
+  "by": "Ron Lach",
+  "url": "https://www.pexels.com/photo/unrecognizable-hands-handshaking-over-table-9870223/",
+  "size": "1400x933",
+  "kb": 58
+ },
+ "rich-industrial": {
+  "type": "photo",
+  "by": "Sergey Sergeev",
+  "url": "https://www.pexels.com/photo/industrial-worker-using-tablet-in-factory-32845692/",
+  "size": "1400x932",
+  "kb": 71
  }
 }

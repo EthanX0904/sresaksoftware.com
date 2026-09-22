@@ -52,17 +52,21 @@
   <a class="btn btn--primary btn--wide" href="tel:+61851246903">Call 08 5124 6903</a>
   <a class="btn btn--darkline btn--wide" href="/contact.html" style="margin-top:10px">Tell us what's breaking</a>
 </div>
-<main id="main"><section class="phero phero__grid phero__glow"><div class="wrap">
-  <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span>Contact</nav>
-  <h1>Let&rsquo;s talk about what is <em>not working</em></h1><p class="lead">Send a short description of the problem, or call. Either way you get a straight answer about whether we can help and what it would take.</p>
-  
-</div></section>
-<section class="section s-light"><div class="wrap contact">
+<main id="main"><section class="phero phero__grid phero__glow">
+  <div class="vbg"><video class="kenburns" autoplay muted loop playsinline preload="metadata"
+    poster="/assets/img/hero-rack-poster.webp"><source src="/assets/video/hero-rack.mp4" type="video/mp4"></video></div>
+  <div class="wrap">
+    <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span>Contact</nav>
+    <h1>Let&rsquo;s talk about what is <em>not working</em></h1><p class="lead">Send a short description of the problem, or call. Either way you get a straight answer about whether we can help and what it would take.</p>
+    
+  </div>
+</section>
+<section class="section"><div class="wrap contact">
   <div class="reveal">
     <span class="tagline">Send an enquiry</span>
     <h2>Tell us what you need</h2>
     <p class="lead">The more context, the more useful our first reply. Symptoms are more helpful than solutions.</p>
-    <form class="form" method="POST" action="https://formspree.io/f/[待确认]" data-enquiry style="margin-top:26px">
+    <form class="form" data-enquiry novalidate style="margin-top:22px">
       <div class="f-grid">
         <div><label for="f-name">Name <span class="req">*</span></label><input id="f-name" name="name" required autocomplete="name"></div>
         <div><label for="f-co">Company</label><input id="f-co" name="company" autocomplete="organization"></div>
@@ -79,58 +83,58 @@
       </select>
       <label for="f-msg">Details</label>
       <textarea id="f-msg" name="message" placeholder="A few sentences: what happens, which systems are involved, and any deadline you are working to."></textarea>
-      <button class="btn btn--primary btn--wide" style="margin-top:22px" type="submit">Send enquiry</button>
+      <button class="btn btn--primary btn--wide" style="margin-top:20px" type="submit">Send enquiry</button>
       <p class="form__note">We reply to every enquiry — target one business day. Your details are used only to answer this enquiry.</p>
-      <div class="form__ok" role="status"></div>
+      <div class="form__ok" role="status" aria-live="polite"></div>
     </form>
   </div>
   <div class="reveal">
     <span class="tagline">Direct</span>
     <h2>Reach us without the form</h2>
-    <dl class="info" style="margin-top:26px">
+    <dl class="info" style="margin-top:22px">
       <div class="info__row"><dt>Phone</dt><dd><a href="tel:+61851246903">08 5124 6903</a></dd></div>
       <div class="info__row"><dt>Email</dt><dd><a href="mailto:info@sresaksoftware.com">info@sresaksoftware.com</a></dd></div>
       <div class="info__row"><dt>Office</dt><dd>Level 24, 108 St Georges Terrace<br>Perth WA 6000, Australia</dd></div>
       <div class="info__row"><dt>Servicing</dt><dd>Perth metro and regional WA<br><span style="font-size:14px;color:var(--t-dark-2)">Remote delivery Australia-wide</span></dd></div>
-      <div class="info__row"><dt>Hours</dt><dd>Mon–Fri, 9:30am – 6:00pm AWST</dd></div>
       <div class="info__row"><dt>Entity</dt><dd>Sresak Software Solutions Pty Ltd<br><span style="font-size:14px;color:var(--t-dark-2)">ABN 53 613 988 131 · ACN 613 988 131 · since 2016</span></dd></div>
     </dl>
     <div class="map">
       <iframe title="108 St Georges Terrace, Perth" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
         src="https://www.openstreetmap.org/export/embed.html?bbox=115.8455%2C-31.9595%2C115.8645%2C-31.9490&amp;layer=mapnik&amp;marker=-31.9543%2C115.8550"></iframe>
     </div>
-    <p class="mono" style="margin-top:12px;color:var(--t-dark-2)">Level 24, 108 St Georges Terrace, Perth WA 6000, Australia</p>
+    <p class="mono" style="margin-top:10px;color:var(--t-dark-2)">Level 24, 108 St Georges Terrace, Perth WA 6000, Australia</p>
   </div>
 </div></section>
 
 <section class="section s-tint">
   <div class="wrap">
-    <div class="head reveal"><span class="tagline">Before you send</span><h2>Three things that speed us up</h2></div>
-    <div style="margin-top:40px">
-      <div class="rows"><div class="row reveal">
-  <div class="row__idx">B01</div>
-  <div><h3>What is not working</h3></div>
-  <div><p>The symptom, not the solution. &ldquo;Stock never reconciles&rdquo; tells us more than &ldquo;we need a new ERP&rdquo;.</p></div>
-</div><div class="row reveal">
-  <div class="row__idx">B02</div>
-  <div><h3>Your deadline</h3></div>
-  <div><p>A lease, an audit, a busy season, a contract renewal — if a date is driving this, tell us.</p></div>
-</div><div class="row reveal">
-  <div class="row__idx">B03</div>
-  <div><h3>Who is affected</h3></div>
-  <div><p>How many people, which teams, and whether they are under one roof.</p></div>
-</div></div>
+    <div class="head reveal"><span class="tagline">Before you send</span><h2>Three things that speed us <em>up</em></h2></div>
+    <div style="margin-top:26px">
+      <div class="tiles" style="grid-template-columns:repeat(3,1fr)"><div class="tile reveal"><span class="mono">B01</span><h3>What is not working</h3><p>The symptom, not the solution. &ldquo;Stock never reconciles&rdquo; tells us more than &ldquo;we need a new ERP&rdquo;.</p></div><div class="tile reveal"><span class="mono">B02</span><h3>Your deadline</h3><p>A lease, an audit, a busy season, a contract renewal — if a date is driving this, tell us.</p></div><div class="tile reveal"><span class="mono">B03</span><h3>Who is affected</h3><p>How many people, which teams, and whether they are under one roof.</p></div></div>
     </div>
   </div>
 </section>
 
-<section class="cta"><div class="wrap cta__in">
-  <div class="reveal"><span class="tagline">Next step</span><h2>Prefer email?</h2><p class="lead">Send the brief and we will take it from there — as much or as little detail as you have.</p></div>
-  <div class="cta__actions reveal">
-    <a class="btn btn--primary" href="mailto:info@sresaksoftware.com">info@sresaksoftware.com</a>
-    <a class="btn btn--darkline" href="/services.html">See our services</a>
+<section class="section">
+  <div class="wrap">
+    <div class="head reveal"><span class="tagline">Most requested</span><h2>What people ask us to quote <em>most</em></h2></div>
+    <div style="margin-top:26px">
+      <div class="tablewrap"><table class="dtable"><thead><tr><th>Request</th><th>What we do</th><th>Typical shape</th></tr></thead><tbody><tr><td>Help desk &amp; support</td><td>Named contact, priority response, patching, backups, device management.</td><td>Monthly retainer</td></tr><tr><td>Backup &amp; recovery</td><td>Test restores, offsite copies, documented recovery steps and time targets.</td><td>Fixed-scope project</td></tr><tr><td>Security uplift</td><td>Essential Eight review, MFA, hardening, awareness training, evidence pack.</td><td>Fixed-scope project</td></tr><tr><td>Reporting &amp; dashboards</td><td>Consolidate the data, agree definitions, build the reports people actually open.</td><td>Fixed-scope project</td></tr><tr><td>A system that has outgrown Excel</td><td>Replace the spreadsheet with a proper tool, integrated with finance.</td><td>Fixed-scope project</td></tr><tr><td>Cloud migration</td><td>Assess, plan, migrate, document — with a rollback path.</td><td>Fixed-scope project</td></tr></tbody></table></div>
+    </div>
   </div>
-</div></section></main>
+</section>
+
+<section class="cta">
+  <div class="vbg"><video muted loop playsinline preload="none" data-lazy-video
+    poster="/assets/img/city-night-poster.webp" src="/assets/video/city-night.mp4"></video></div>
+  <div class="wrap cta__in">
+    <div class="reveal"><span class="tagline">Next step</span><h2>Prefer email?</h2><p class="lead">Send the brief and we will take it from there — as much or as little detail as you have.</p></div>
+    <div class="cta__actions reveal">
+      <a class="btn btn--primary" href="tel:+61851246903">Call 08 5124 6903</a>
+      <a class="btn btn--darkline" href="/services.html">See our services</a>
+    </div>
+  </div>
+</section></main>
 <footer class="ftr">
   <div class="wrap">
     <div class="ftr__grid">
@@ -138,7 +142,7 @@
         <div class="ftr__brand"><svg width="34" height="34" viewBox="0 0 48 48" aria-hidden="true" class="" style="color:#fff" xmlns="http://www.w3.org/2000/svg"><path d="M38 13H15V23H33V35H10" fill="none" stroke="currentColor" stroke-width="4.6" stroke-linecap="square"/><rect x="34" y="9" width="8" height="8" fill="currentColor"/><rect x="6" y="31" width="8" height="8" fill="currentColor"/></svg>
           <span class="brand__words"><span class="brand__name">Sresak</span><span class="brand__tag">SOFTWARE&nbsp;SOLUTIONS</span></span></div>
         <p style="max-width:36ch">A Perth software and IT team. We build the internal systems businesses run on, and keep them working.</p>
-        <p class="mono" style="margin-top:18px;color:#5C6A78">ABN 53 613 988 131 · ACN 613 988 131 · SINCE 2016</p>
+        <p class="mono" style="margin-top:14px;color:#5C6A78">ABN 53 613 988 131 · ACN 613 988 131 · SINCE 2016</p>
       </div>
       <div>
         <h4>Company</h4>
@@ -149,19 +153,18 @@
         <h4>Services</h4>
         <a href="/services.html#software">Custom software</a><a href="/services.html#support">Managed IT</a>
         <a href="/services.html#cloud">Cloud &amp; infrastructure</a><a href="/services.html#security">Cyber security</a>
-        <a href="/services.html#data">Data &amp; reporting</a>
+        <a href="/services.html#data">Data &amp; reporting</a><a href="/services.html#web">Web &amp; integrations</a>
       </div>
       <div>
         <h4>Contact</h4>
         <a href="tel:+61851246903">08 5124 6903</a>
         <a href="mailto:info@sresaksoftware.com">info@sresaksoftware.com</a>
         <a href="/contact.html">Level 24, 108 St Georges Terrace<br>Perth WA 6000</a>
-        <a href="/contact.html">Mon–Fri, 9:30am – 6:00pm AWST</a>
       </div>
     </div>
     <div class="ftr__bot">
       <span>© <span id="year">2026</span> Sresak Software Solutions Pty Ltd</span>
-      <span>Photography: Pexels licence · site built in-house</span>
+      <span>Photography &amp; footage: Pexels licence · site built in-house</span>
     </div>
   </div>
 </footer>

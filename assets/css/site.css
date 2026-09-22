@@ -65,7 +65,7 @@ body{
 img,svg,video{max-width:100%;height:auto;display:block}
 a{color:inherit}
 h1,h2,h3,h4{font-family:var(--f-head);color:var(--t-dark);line-height:1.08;letter-spacing:-.032em;
-  margin:0 0 .5em;font-weight:600;text-wrap:balance}
+  margin:0 0 .34em;font-weight:600;text-wrap:balance}
 h1{font-size:var(--fs-display);line-height:1.02}
 h2{font-size:var(--fs-h2);line-height:1.08}
 h3{font-size:var(--fs-h3);letter-spacing:-.022em}
@@ -83,7 +83,8 @@ hr{border:0;border-top:1px solid var(--line);margin:0}
 
 /* ---------------------------------------------------------------- helpers */
 .wrap{width:min(var(--wrap),100% - var(--pad)*2);margin-inline:auto}
-.section{padding:clamp(58px,7vw,104px) 0;position:relative}
+.section{padding:clamp(42px,4.6vw,68px) 0;position:relative}
+.section--tight{padding:clamp(30px,3.4vw,50px) 0}
 .s-light{background:var(--paper)}
 .s-tint{background:var(--paper-2)}
 .s-dark{background:var(--ink);color:var(--t-light-2)}
@@ -104,7 +105,7 @@ hr{border:0;border-top:1px solid var(--line);margin:0}
 .mono--amber{color:var(--amber)}
 .mono--blue{color:var(--blue)}
 .tagline{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:12px;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:20px}
+  letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
 .tagline::before{content:"";width:28px;height:1px;background:currentColor;opacity:.55}
 .s-dark .tagline{color:var(--cyan)}
 .lead{font-size:var(--fs-lede);line-height:1.6;color:var(--t-dark-2);max-width:62ch}
@@ -244,7 +245,7 @@ body.nav-open .drawer{transform:none;opacity:1;pointer-events:auto}
 .rows{border-top:1px solid var(--line)}
 .s-dark .rows{border-color:var(--line-dark)}
 .row{display:grid;grid-template-columns:76px minmax(220px,1fr) 1.25fr;gap:clamp(16px,3vw,44px);align-items:start;
-  padding:clamp(22px,2.6vw,32px) 0;border-bottom:1px solid var(--line);transition:background .25s var(--ease)}
+  padding:clamp(16px,1.8vw,24px) 0;border-bottom:1px solid var(--line);transition:background .25s var(--ease)}
 .s-dark .row{border-color:var(--line-dark)}
 .row:hover{background:var(--paper-2)}
 .s-dark .row:hover{background:rgba(255,255,255,.03)}
@@ -487,3 +488,102 @@ textarea{min-height:132px;resize:vertical}
 .totop.show{opacity:1;pointer-events:auto}
 .totop:hover{transform:translateY(-2px)}
 @media print{.hdr,.drawer,.totop,.form,.cta__actions{display:none!important}}
+
+/* ==========================================================================
+   v3 additions: motion, density, video
+   ========================================================================== */
+
+/* ---- video backgrounds -------------------------------------------------- */
+.vbg{position:absolute;inset:0;overflow:hidden;z-index:-2}
+.vbg video,.vbg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vbg video{filter:saturate(.75) contrast(1.02)}
+.vbg::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(6,10,16,.86) 0%,rgba(6,10,16,.92) 100%),
+  radial-gradient(760px 420px at 80% 0%,rgba(79,156,249,.20),transparent 62%)}
+.kenburns{animation:kb 26s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1) translate3d(0,0,0)}to{transform:scale(1.08) translate3d(-1.2%,-1%,0)}}
+@media(prefers-reduced-motion:reduce){.kenburns{animation:none}}
+
+/* framed looping clip inside a section */
+.clip{position:relative;border-radius:var(--r-md);overflow:hidden;border:1px solid var(--line-dark);
+  background:#080B10;box-shadow:var(--shadow-lg);aspect-ratio:16/9}
+.s-light .clip{border-color:var(--line)}
+.clip video,.clip img{width:100%;height:100%;object-fit:cover;display:block}
+.clip__tag{position:absolute;left:12px;bottom:12px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:#E7EEF5;background:rgba(7,12,20,.72);border:1px solid var(--line-dark);
+  padding:6px 10px;border-radius:999px;backdrop-filter:blur(6px)}
+
+/* ---- marquee ----------------------------------------------------------- */
+.marquee{position:relative;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:14px 0;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.s-dark .marquee{border-color:var(--line-dark)}
+.marquee__track{display:flex;gap:38px;width:max-content;animation:slide 38s linear infinite}
+.marquee:hover .marquee__track{animation-play-state:paused}
+.marquee span{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--t-dark-2);white-space:nowrap;display:inline-flex;align-items:center;gap:12px}
+.s-dark .marquee span{color:var(--t-light-2)}
+.marquee span::after{content:"";width:4px;height:4px;background:var(--blue);border-radius:50%;opacity:.5}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.marquee__track{animation:none}}
+
+/* ---- compact tile grid -------------------------------------------------- */
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+@media(max-width:1000px){.tiles{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.tiles{grid-template-columns:1fr}}
+.tile{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 20px 22px;
+  transition:background .25s var(--ease)}
+.tile:hover{background:var(--paper-2)}
+.s-dark .tiles{border-color:var(--line-dark)}
+.s-dark .tile{border-color:var(--line-dark)}
+.s-dark .tile:hover{background:rgba(255,255,255,.03)}
+.tile .mono{display:block;color:var(--blue);margin-bottom:9px}
+.s-dark .tile .mono{color:var(--cyan)}
+.tile h3{font-size:1.03rem;margin:0 0 .3em}
+.tile p{margin:0;font-size:14.6px;color:var(--t-dark-2)}
+.s-dark .tile p{color:var(--t-light-2)}
+
+/* ---- two-column lists -------------------------------------------------- */
+.twolists{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,3vw,48px)}
+@media(max-width:820px){.twolists{grid-template-columns:1fr}}
+.fitlist{border-top:1px solid var(--line);padding-top:20px}
+.fitlist h3{font-size:1.08rem;margin-bottom:.7em;display:flex;align-items:center;gap:10px}
+.fitlist h3::after{content:"";flex:1;height:1px;background:var(--line)}
+.fitlist ul{list-style:none;padding:0;margin:0;display:grid;gap:11px}
+.fitlist li{display:flex;gap:12px;font-size:15.2px}
+.fitlist li::before{content:"";flex:none;width:7px;height:7px;margin-top:8px;border-radius:1px;background:var(--blue)}
+.fitlist--no li::before{background:#B9C2CB}
+
+/* ---- compact data table ------------------------------------------------ */
+.dtable{width:100%;border-collapse:collapse;font-size:15.2px}
+.dtable th,.dtable td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+.dtable th{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--t-dark-2);font-weight:500}
+.dtable td:first-child{font-family:var(--f-mono);font-size:12.5px;color:var(--blue);white-space:nowrap}
+.s-dark .dtable th,.s-dark .dtable td{border-color:var(--line-dark)}
+.s-dark .dtable th{color:var(--t-light-3)}
+.s-dark .dtable td:first-child{color:var(--cyan)}
+.tablewrap{overflow-x:auto;border-top:1px solid var(--line)}
+.s-dark .tablewrap{border-color:var(--line-dark)}
+
+/* ---- animated diagram dashes ------------------------------------------ */
+.arch svg .flow{stroke:rgba(79,156,249,.75);stroke-width:1.4;stroke-dasharray:5 7;animation:dash 3.6s linear infinite}
+.arch svg .flow.alt{stroke:rgba(62,216,224,.7)}
+.arch svg .flow.amber{stroke:rgba(245,165,36,.75)}
+@keyframes dash{to{stroke-dashoffset:-48}}
+@media(prefers-reduced-motion:reduce){.arch svg .flow{animation:none}}
+
+/* ---- dense stat row (compact, inline) --------------------------------- */
+.statline{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.statline div{padding:18px clamp(16px,2.4vw,30px);border-right:1px solid var(--line);flex:1 1 190px}
+.statline div:last-child{border-right:0}
+.statline b{display:block;font-family:var(--f-head);font-size:clamp(1.25rem,2vw,1.7rem);letter-spacing:-.03em;color:var(--t-dark)}
+.statline span{display:block;margin-top:6px;font-size:14.2px;color:var(--t-dark-2)}
+.s-dark .statline,.s-dark .statline div{border-color:var(--line-dark)}
+.s-dark .statline b{color:#fff}
+.s-dark .statline span{color:var(--t-light-2)}
+
+/* tighter grids / cards in dense mode */
+.grid--tight{gap:14px}
+.card--tight{padding:20px}
+.prose{max-width:70ch}
+.prose h3{margin-top:1.3em}
+.lede-sm{font-size:15.8px;color:var(--t-dark-2)}

@@ -1,0 +1,100 @@
+{
+ "hero": {
+  "photographer": "Sonny Sixteen",
+  "url": "https://www.pexels.com/photo/modern-building-glassy-facade-17210697/",
+  "query": "modern office glass building technology",
+  "size": "1920x1440",
+  "kb_webp": 77
+ },
+ "perth": {
+  "photographer": "Tibor Janas",
+  "url": "https://www.pexels.com/photo/skyscrapers-in-downtown-of-perth-western-australia-16229055/",
+  "query": "Perth Western Australia city skyline",
+  "size": "1600x1061",
+  "kb_webp": 419
+ },
+ "about": {
+  "photographer": "Yan Krukau",
+  "url": "https://www.pexels.com/photo/businesspeople-brainstorming-in-a-meeting-7693692/",
+  "query": "business team meeting office australia",
+  "size": "1400x934",
+  "kb_webp": 108
+ },
+ "svc-software": {
+  "photographer": "Nemuel Sereti",
+  "url": "https://www.pexels.com/photo/monitor-displaying-lines-of-code-6424583/",
+  "query": "programmer code screen dark",
+  "size": "1000x666",
+  "kb_webp": 56
+ },
+ "svc-support": {
+  "photographer": "panumas nikhomkhai",
+  "url": "https://www.pexels.com/photo/it-technician-working-in-data-center-server-room-37605911/",
+  "query": "it support technician office",
+  "size": "1000x668",
+  "kb_webp": 46
+ },
+ "svc-cloud": {
+  "photographer": "panumas nikhomkhai",
+  "url": "https://www.pexels.com/photo/data-center-server-racks-with-active-equipment-37730212/",
+  "query": "server room data centre",
+  "size": "1000x666",
+  "kb_webp": 22
+ },
+ "svc-security": {
+  "photographer": "Ann H",
+  "url": "https://www.pexels.com/photo/abstract-concept-of-encryption-security-38486959/",
+  "query": "cyber security abstract",
+  "size": "1000x666",
+  "kb_webp": 60
+ },
+ "svc-data": {
+  "photographer": "weCare Media",
+  "url": "https://www.pexels.com/photo/close-up-photo-of-black-digital-tablet-on-brown-surface-10020092/",
+  "query": "analytics dashboard screen",
+  "size": "1000x666",
+  "kb_webp": 19
+ },
+ "svc-web": {
+  "photographer": "Negative Space",
+  "url": "https://www.pexels.com/photo/iphone-dark-notebook-pen-34140/",
+  "query": "web design workspace laptop",
+  "size": "1000x666",
+  "kb_webp": 34
+ },
+ "work-1": {
+  "photographer": "Artem Podrez",
+  "url": "https://www.pexels.com/photo/a-person-busy-working-on-her-laptop-while-writing-on-a-notebook-8511933/",
+  "query": "business dashboard laptop meeting",
+  "size": "1000x562",
+  "kb_webp": 37
+ },
+ "work-2": {
+  "photographer": "Peter Xie",
+  "url": "https://www.pexels.com/photo/automated-warehouse-robotic-system-with-blue-crates-36522028/",
+  "query": "warehouse logistics technology",
+  "size": "1000x666",
+  "kb_webp": 84
+ },
+ "work-3": {
+  "photographer": "Jake  Norris",
+  "url": "https://www.pexels.com/photo/opal-mine-entrance-in-coober-pedy-australia-33632998/",
+  "query": "engineer mine site western australia",
+  "size": "1000x625",
+  "kb_webp": 63
+ },
+ "work-4": {
+  "photographer": "Cedric Fauntleroy",
+  "url": "https://www.pexels.com/photo/a-receptionist-and-a-practitioner-at-the-reception-4269274/",
+  "query": "healthcare clinic reception technology",
+  "size": "1000x602",
+  "kb_webp": 23
+ },
+ "cta": {
+  "photographer": "Tibor Janas",
+  "url": "https://www.pexels.com/photo/skyscrapers-in-downtown-of-perth-western-australia-16229055/",
+  "query": "aerial view city perth river",
+  "size": "1600x1061",
+  "kb_webp": 419
+ }
+}
